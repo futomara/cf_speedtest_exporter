@@ -1,0 +1,1 @@
+# cf_speedtest_exporter
