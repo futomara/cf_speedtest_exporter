@@ -3,5 +3,5 @@ services:
     build: .
     container_name: cf-speedtest-exporter
     ports:
-      - "8000:8000"
+      - "9877:9877"
     restart: unless-stopped

@@ -105,7 +105,7 @@ def generate_prometheus_metrics(payload: Dict[str, Any]) -> str:
 
 def main() -> None:
     host = os.environ.get("HOST", "0.0.0.0")
-    port = int(os.environ.get("PORT", "8000"))
+    port = int(os.environ.get("PORT", "9877"))
     server = HTTPServer((host, port), SpeedtestExporterHandler)
     print(f"Serving on http://{host}:{port}")
     server.serve_forever()

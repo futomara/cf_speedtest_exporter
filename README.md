@@ -31,7 +31,7 @@ docker compose up --build -d
 
 Then visit:
 
-- `http://localhost:8000/metrics`
+- `http://localhost:9877/metrics`
 
 ## GitHub Codespaces
 
@@ -55,8 +55,8 @@ docker build -t cf_speedtest_exporter:latest .
 
 1. Push this repository to GitHub.
 2. In Docker on Synology, create a new image from the GitHub repository or build it manually.
-3. Run the container with port `8000` exposed.
-4. Add a Prometheus scrape target for `http://<synology-ip>:8000/metrics`.
+3. Run the container with port `9877` exposed.
+4. Add a Prometheus scrape target for `http://<synology-ip>:9877/metrics`.
 5. Import the Grafana dashboard from `grafana/dashboard.json`.
 
 ## Prometheus scrape config example
@@ -65,7 +65,7 @@ docker build -t cf_speedtest_exporter:latest .
 scrape_configs:
   - job_name: cf_speedtest_exporter
     static_configs:
-      - targets: ["<synology-ip>:8000"]
+      - targets: ["<synology-ip>:9877"]
 ```
 
 ## Notes

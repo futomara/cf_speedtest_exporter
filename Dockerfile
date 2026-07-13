@@ -3,7 +3,7 @@ FROM python:3.12-slim
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     HOST=0.0.0.0 \
-    PORT=8000
+    PORT=9877
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -16,5 +16,5 @@ RUN curl -fsSL https://raw.githubusercontent.com/kavehtehrani/cloudflare-speed-c
 WORKDIR /app
 COPY exporter.py /app/exporter.py
 
-EXPOSE 8000
+EXPOSE 9877
 CMD ["python", "/app/exporter.py"]
