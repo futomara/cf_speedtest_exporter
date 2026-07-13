@@ -34,8 +34,8 @@ def resolve_cli_path() -> str:
         return configured
 
     candidate_paths = [
-        "/root/.local/bin/cloudflare-speed-cli",
         "/usr/local/bin/cloudflare-speed-cli",
+        "/root/.local/bin/cloudflare-speed-cli",
         "/usr/bin/cloudflare-speed-cli",
         "cloudflare-speed-cli",
     ]

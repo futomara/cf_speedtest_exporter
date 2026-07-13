@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xz-utils \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -fsSL https://raw.githubusercontent.com/kavehtehrani/cloudflare-speed-cli/main/install.sh | sh
+RUN curl -fsSL https://raw.githubusercontent.com/kavehtehrani/cloudflare-speed-cli/main/install.sh | sh \
+    && install -m 0755 /root/.local/bin/cloudflare-speed-cli /usr/local/bin/cloudflare-speed-cli
 
 WORKDIR /app
 COPY exporter.py /app/exporter.py
