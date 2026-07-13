@@ -68,6 +68,14 @@ scrape_configs:
       - targets: ["<synology-ip>:9877"]
 ```
 
+## Credits and inspiration
+
+This project builds on and adapts work from several upstream projects:
+
+- Original Prometheus exporter concept and port layout inspired by [r3htanz/speedtest_exporter](https://github.com/r3htanz/speedtest_exporter)
+- Cloudflare speed test CLI used for the actual speed measurements: [kavehtehrani/cloudflare-speed-cli](https://github.com/kavehtehrani/cloudflare-speed-cli)
+- Grafana dashboard approach and monitoring stack inspiration from [wozniakpawel/synology-grafana-prometheus-overly-comprehensive-dashboard](https://github.com/wozniakpawel/synology-grafana-prometheus-overly-comprehensive-dashboard)
+
 ## Notes
 
 The exporter currently uses the Cloudflare CLI in JSON mode. For best results on Synology, use a container with enough access to the host network and allow the CLI to run its test normally.
