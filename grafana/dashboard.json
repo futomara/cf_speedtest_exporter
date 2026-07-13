@@ -80,6 +80,7 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
   "id": null,
+  "uid": "cf-speedtest-synology",
   "links": [
     {
       "asDropdown": false,
