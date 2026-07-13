@@ -42,6 +42,26 @@
     }
   ],
   "liveNow": false,
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "Prometheus",
+          "value": "Prometheus"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      }
+    ]
+  },
   "panels": [
     {
       "collapsed": false,
@@ -5151,9 +5171,13 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "cf_speedtest_download_mbps",
+              "expr": "avg(cf_speedtest_download_mbps{})",
               "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 1,
               "legendFormat": "Download",
+              "queryType": "randomWalk",
               "refId": "A"
             },
             {
@@ -5163,14 +5187,16 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "cf_speedtest_upload_mbps",
-              "format": "time_series",
+              "expr": "avg(cf_speedtest_upload_mbps{})",
+              "hide": false,
+              "interval": "",
               "legendFormat": "Upload",
+              "range": true,
               "refId": "B"
             }
           ],
           "timeFrom": "now-1w",
-          "title": "Cloudflare Throughput",
+          "title": "Throughput",
           "transformations": [],
           "type": "timeseries",
           "uid": "cf-speedtest-panel-171"
@@ -5267,7 +5293,7 @@
             }
           ],
           "timeFrom": "1w",
-          "title": "Cloudflare Download Speed",
+          "title": "Download",
           "type": "stat",
           "uid": "cf-speedtest-panel-174"
         },
@@ -5291,7 +5317,7 @@
                   }
                 ]
               },
-              "unit": "Mbits",
+              "unit": "bps",
               "unitScale": true
             },
             "overrides": []
@@ -5363,7 +5389,7 @@
             }
           ],
           "timeFrom": "1w",
-          "title": "Cloudflare Upload Speed",
+          "title": "Upload",
           "type": "stat",
           "uid": "cf-speedtest-panel-175"
         },
@@ -5425,7 +5451,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "min(min_over_time(cf_speedtest_latency_ms[1w:5m]))",
+              "expr": "min(min_over_time(cf_speedtest_idle_latency_min_ms[1w:5m]))",
               "interval": "",
               "legendFormat": "Best",
               "range": true,
@@ -5438,7 +5464,7 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "max(max_over_time(cf_speedtest_latency_ms[1w:5m]))",
+              "expr": "max(max_over_time(cf_speedtest_idle_latency_max_ms[1w:5m]))",
               "hide": false,
               "interval": "",
               "legendFormat": "Worst",
@@ -5451,7 +5477,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "avg(avg_over_time(cf_speedtest_latency_ms[1w:5m]))",
+              "expr": "avg(avg_over_time(cf_speedtest_idle_latency_mean_ms[1w:5m]))",
               "hide": false,
               "interval": "",
               "legendFormat": "Avg",
@@ -5459,7 +5485,7 @@
             }
           ],
           "timeFrom": "1w",
-          "title": "Cloudflare Latency",
+          "title": "Latency",
           "type": "stat",
           "uid": "cf-speedtest-panel-176"
         },
@@ -5518,7 +5544,7 @@
                   }
                 ]
               },
-              "unit": "s",
+              "unit": "ms",
               "unitScale": true
             },
             "overrides": [
@@ -5573,15 +5599,16 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "cf_speedtest_latency_ms",
+              "expr": "avg(cf_speedtest_idle_latency_mean_ms{})",
               "interval": "",
               "legendFormat": "Latency",
+              "queryType": "randomWalk",
               "range": true,
               "refId": "A"
             }
           ],
           "timeFrom": "now-1w",
-          "title": "Cloudflare Latency Trend",
+          "title": "Latency",
           "type": "timeseries",
           "uid": "cf-speedtest-panel-172"
         },
@@ -5642,7 +5669,7 @@
                   }
                 ]
               },
-              "unit": "s",
+              "unit": "ms",
               "unitScale": true
             },
             "overrides": [
@@ -5692,15 +5719,16 @@
               },
               "editorMode": "code",
               "exemplar": true,
-              "expr": "cf_speedtest_jitter_ms",
+              "expr": "avg(cf_speedtest_download_duration_ms{})",
               "interval": "",
-              "legendFormat": "Jitter",
+              "legendFormat": "Duration",
+              "queryType": "randomWalk",
               "range": true,
               "refId": "A"
             }
           ],
           "timeFrom": "now-1w",
-          "title": "Cloudflare Jitter",
+          "title": "Duration",
           "type": "timeseries",
           "uid": "cf-speedtest-panel-177"
         },
@@ -5869,7 +5897,8 @@
               "expr": "cf_speedtest_download_mbps",
               "format": "table",
               "interval": "",
-              "legendFormat": "Download",
+              "legendFormat": "",
+              "queryType": "randomWalk",
               "refId": "A"
             },
             {
@@ -5882,7 +5911,7 @@
               "format": "table",
               "hide": false,
               "interval": "",
-              "legendFormat": "Upload",
+              "legendFormat": "",
               "refId": "B"
             },
             {
@@ -5891,7 +5920,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": true,
-              "expr": "cf_speedtest_latency_ms",
+              "expr": "cf_speedtest_idle_latency_mean_ms",
               "format": "table",
               "hide": false,
               "interval": "",
@@ -5900,7 +5929,7 @@
             }
           ],
           "timeFrom": "now-1w",
-          "title": "Cloudflare Test Results",
+          "title": "Test Results",
           "transformations": [
             {
               "id": "seriesToColumns",
