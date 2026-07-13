@@ -65,23 +65,41 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "green", "value": null },
-              { "color": "red", "value": 80 }
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
             ]
           },
           "unit": "Mbits"
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
       "id": 1,
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom", "showLegend": true },
-        "tooltip": { "mode": "single", "sort": "none" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
       "targets": [
         {
-          "expr": "rate(cf_speedtest_download_mbps[5m])",
+          "expr": "cf_speedtest_download_mbps",
           "legendFormat": "download",
           "refId": "A"
         }
@@ -96,16 +114,30 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": { "mode": "palette-classic" },
+          "color": {
+            "mode": "palette-classic"
+          },
           "unit": "Mbits"
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
       "id": 2,
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom", "showLegend": true },
-        "tooltip": { "mode": "single", "sort": "none" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
       "targets": [
         {
@@ -124,18 +156,40 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": { "mode": "palette-classic" },
+          "color": {
+            "mode": "palette-classic"
+          },
           "unit": "ms"
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 8 },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 8
+      },
       "id": 3,
-      "options": { "reduceOptions": { "values": false, "calcs": ["lastNotNull"], "fields": "" }, "graphMode": "area", "colorMode": "background", "justifyMode": "center" },
+      "options": {
+        "reduceOptions": {
+          "values": false,
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": ""
+        },
+        "graphMode": "area",
+        "colorMode": "background",
+        "justifyMode": "center"
+      },
       "targets": [
-        { "expr": "cf_speedtest_latency_ms", "legendFormat": "latency", "refId": "A" }
+        {
+          "expr": "cf_speedtest_latency_ms",
+          "legendFormat": "latency",
+          "refId": "A"
+        }
       ],
-      "title": "Latency",
+      "title": "Cloudflare Latency",
       "type": "stat"
     },
     {
@@ -145,18 +199,40 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": { "mode": "palette-classic" },
+          "color": {
+            "mode": "palette-classic"
+          },
           "unit": "ms"
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 8 },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 8
+      },
       "id": 4,
-      "options": { "reduceOptions": { "values": false, "calcs": ["lastNotNull"], "fields": "" }, "graphMode": "area", "colorMode": "background", "justifyMode": "center" },
+      "options": {
+        "reduceOptions": {
+          "values": false,
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": ""
+        },
+        "graphMode": "area",
+        "colorMode": "background",
+        "justifyMode": "center"
+      },
       "targets": [
-        { "expr": "cf_speedtest_loaded_latency_ms", "legendFormat": "loaded latency", "refId": "A" }
+        {
+          "expr": "cf_speedtest_loaded_latency_ms",
+          "legendFormat": "loaded latency",
+          "refId": "A"
+        }
       ],
-      "title": "Loaded Latency",
+      "title": "Cloudflare Loaded Latency",
       "type": "stat"
     },
     {
@@ -166,16 +242,38 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": { "mode": "palette-classic" },
+          "color": {
+            "mode": "palette-classic"
+          },
           "unit": "ms"
         },
         "overrides": []
       },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 8 },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 8
+      },
       "id": 5,
-      "options": { "reduceOptions": { "values": false, "calcs": ["lastNotNull"], "fields": "" }, "graphMode": "area", "colorMode": "background", "justifyMode": "center" },
+      "options": {
+        "reduceOptions": {
+          "values": false,
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": ""
+        },
+        "graphMode": "area",
+        "colorMode": "background",
+        "justifyMode": "center"
+      },
       "targets": [
-        { "expr": "cf_speedtest_jitter_ms", "legendFormat": "jitter", "refId": "A" }
+        {
+          "expr": "cf_speedtest_jitter_ms",
+          "legendFormat": "jitter",
+          "refId": "A"
+        }
       ],
       "title": "Jitter",
       "type": "stat"
@@ -184,7 +282,11 @@
   "refresh": "30s",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": ["network", "prometheus", "cloudflare"],
+  "tags": [
+    "network",
+    "prometheus",
+    "cloudflare"
+  ],
   "templating": {
     "list": []
   },
