@@ -6857,7 +6857,7 @@
   },
   "timezone": "browser",
   "title": "Synology Cloudflare Speedtest Dashboard",
-  "uid": "lcHlCU2Vz",
+  "uid": "cf-speedtest-synology",
   "version": 62,
   "weekStart": "monday"
 }
